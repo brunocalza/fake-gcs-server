@@ -67,7 +67,12 @@ type jsonObject struct {
 	Deleted         time.Time         `json:"deleted,omitempty"`
 	CustomTime      time.Time         `json:"customTime,omitempty"`
 	Generation      int64             `json:"generation,omitempty,string"`
+	Metageration    int64             `json:"metageneration,string"`
 	Metadata        map[string]string `json:"metadata,omitempty"`
+	SelfLink        string            `json:"selfLink"`
+	MediaLink       string            `json:"mediaLink"`
+	ID              string            `json:"id"`
+	Kind            string            `json:"kind"`
 }
 
 // MarshalJSON for ObjectAttrs to use ACLRule instead of storage.ACLRule
@@ -182,6 +187,10 @@ func (acl aclRule) MarshalJSON() ([]byte, error) {
 		Domain      string            `json:"domain"`
 		Email       string            `json:"email"`
 		ProjectTeam *projectTeam      `json:"projectTeam"`
+		ETag        string            `json:"etag"`
+		SelfLink    string            `json:"selfLink"`
+		MediaLink   string            `json:"mediaLink"`
+		Kind        string            `json:"kind"`
 	}{
 		Entity:      acl.Entity,
 		EntityID:    acl.EntityID,

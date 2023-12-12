@@ -86,10 +86,10 @@ type objectAccessControl struct {
 	Email       string `json:"email,omitempty"`
 	Entity      string `json:"entity,omitempty"`
 	EntityID    string `json:"entityId,omitempty"`
-	Etag        string `json:"etag,omitempty"`
+	Etag        string `json:"etag"`
 	Generation  int64  `json:"generation,omitempty,string"`
 	ID          string `json:"id,omitempty"`
-	Kind        string `json:"kind,omitempty"`
+	Kind        string `json:"kind"`
 	Object      string `json:"object,omitempty"`
 	ProjectTeam struct {
 		ProjectNumber string `json:"projectNumber,omitempty"`
@@ -100,6 +100,8 @@ type objectAccessControl struct {
 }
 
 type objectResponse struct {
+	SelfLink        string                 `json:"selfLink"`
+	MediaLink       string                 `json:"mediaLink"`
 	Kind            string                 `json:"kind"`
 	Name            string                 `json:"name"`
 	ID              string                 `json:"id"`
@@ -115,6 +117,7 @@ type objectResponse struct {
 	TimeDeleted     string                 `json:"timeDeleted,omitempty"`
 	Updated         string                 `json:"updated,omitempty"`
 	Generation      int64                  `json:"generation,string"`
+	Metageneration  int64                  `json:"metageneration,string"`
 	CustomTime      string                 `json:"customTime,omitempty"`
 	Metadata        map[string]string      `json:"metadata,omitempty"`
 }

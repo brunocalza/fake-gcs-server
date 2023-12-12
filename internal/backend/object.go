@@ -30,6 +30,7 @@ type ObjectAttrs struct {
 	Updated         string
 	CustomTime      string
 	Generation      int64
+	Metageration    int64
 }
 
 // ID is used for comparing objects.
